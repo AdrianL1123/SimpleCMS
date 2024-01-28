@@ -9,7 +9,7 @@
   
   // Step 4: error checking
   if ( empty( $email ) || empty( $password ) ) {
-    echo( "All the fields are required." ); 
+    setError( "All the fields are required.", "/login" ); 
     // , "/login"
   } else {
     // Step 5: login the user
@@ -27,8 +27,7 @@
       
       // 5.2 - make sure the $user is not empty
       if ( empty( $user ) ) {
-        echo( "The email provided does not exists" );        //redirect bac to log in page 
-        // , "/login"
+        setError( "The email provided does not exists", "/login" );        //redirect bac to log in page 
         header("Location: /login");
         exit;
       } else {
@@ -41,8 +40,7 @@
           header("Location: /");
           exit;
         } else {
-          echo( "The password provided is incorrect" );
-          // , "/login" 
+          setError( "The password provided is incorrect", "/login" );
         }
       }
 
