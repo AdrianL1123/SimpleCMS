@@ -35,6 +35,34 @@
       $page_title = "post";
       require 'pages/post.php';
       break;
+    case 'manage-users':
+       $page_title = "manage-users";
+       require 'pages/manage-users.php';
+       break;
+    case 'manage-users-add':
+       $page_title = "manage-users-add";
+       require 'pages/manage-users-add.php';
+       break;
+    case 'manage-users-edit':
+      $page_title = "manage-users-edit";
+      require 'pages/manage-users-edit.php';
+      break;
+    case 'manage-users-changepwd':
+      $page_title = "manage-users-changepwd";
+      require 'pages/manage-users-changepwd.php';
+      break;
+    case 'manage-posts':
+      $page_title = "manage-posts";
+      require 'pages/manage-posts.php';
+      break;
+    case 'manage-posts-add':
+      $page_title = "manage-posts-add";
+      require 'pages/manage-posts-add.php';
+      break;
+    case 'manage-posts-edit':
+      $page_title = "manage-posts-edit";
+      require 'pages/manage-posts-edit.php';
+      break;
     default:
       $page_title = "Home Page";
       require 'pages/home.php';
