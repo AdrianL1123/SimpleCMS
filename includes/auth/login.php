@@ -37,7 +37,7 @@
           $_SESSION["user"] = $user;
 
            // set success message
-           $_SESSION["success"] = "Welcome back! How can I help you today?";
+           $_SESSION["success"] = "Welcome back, " . $user['name'] .  "! How can I help you today?";
            
           // Step 6: redirect back to home page
           header("Location: /dashboard");

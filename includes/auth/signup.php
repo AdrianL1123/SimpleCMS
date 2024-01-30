@@ -42,11 +42,11 @@
                 ]);
 
             // Step 7: redirect back to login
-            header("Location: /login");
             $_SESSION["success"] = "Account has been created successfully. Please login with your email & password.";
+            header("Location: /login");
             exit;
         } else {
-            setError("The email provided has already been used.", "/signup");
+            setError("The email provided has already been used.","/signup");
         }
 
 

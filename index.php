@@ -75,4 +75,7 @@
     case 'auth/signup':
       require 'includes/auth/signup.php';
       break;
+    case 'user/add':
+      require 'includes/user/add.php';
+      break;
   }
