@@ -46,7 +46,7 @@
 
         // Step 6: redirect back to /manage-users page
         $_SESSION["success"] = "Account has been added successfully.";
-        header("Location: /user/add");
+        header("Location: /manage-users");
         exit;
     } else {
         setError("The email provided has already been used.","/manage-users");

@@ -24,6 +24,7 @@
         </div>
       </div>
       <div class="card mb-2 p-4">
+      <?php require "parts/message_success.php"; ?>
         <table class="table">
           <thead>
             <tr>
@@ -41,7 +42,7 @@
               <td><?= $user["name"]; ?></td>
               <td><?= $user["email"]; ?></td>
               <td>
-                
+
                 <?php if ( $user["role"] === 'admin' ) : ?>
                   <span class="badge bg-primary">Admin</span>
                 <?php endif; ?>

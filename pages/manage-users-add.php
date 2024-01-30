@@ -4,7 +4,6 @@
         <h1 class="h1">Add New User</h1>
       </div>
       <div class="card mb-2 p-4">
-      <?php require "parts/message_success.php"; ?>
       <?php require "parts/message_error.php"; ?>
         <form
           method="POST"
@@ -42,7 +41,6 @@
           </div>
           <div class="mb-3">
             <label for="role" class="form-label">Role</label>
-            <input type="hidden" class="form-control" id="role" name="role" />
             <select class="form-control" id="role" name="role"> 
               <option value="">Select an option</option>
               <option value="user">User</option>
