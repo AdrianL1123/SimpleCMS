@@ -12,7 +12,7 @@
 
     // Step 3: error checking
     // 3.1 make sure all the fields are not empty
-    if ( empty( $name ) || empty( $email ) || empty( $password ) || empty( $confirm_password ) ) {
+    if ( empty( $name ) || empty( $email ) || empty( $password ) || empty( $confirm_password )|| empty( $role ) ) {
         setError( "All the fields are required.", '/manage-users-add' );
     } else if ( $password !== $confirm_password ) {
     // 3.2 - make sure password is match
