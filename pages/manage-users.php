@@ -5,7 +5,7 @@
 
   // get all the users
   // 1. sql command
-  $sql = "SELECT * from users";
+  $sql = "SELECT * from users ORDER BY id DESC";
   // 2. prepare
   $query = $database->prepare( $sql );
   // 3. execute
@@ -59,7 +59,7 @@
               <td class="text-end">
                 <div class="buttons">
                   <a
-                    href="/manage-users-edit"
+                    href="/manage-users-edit?id=<?= $user["id"]; ?>"
                     class="btn btn-success btn-sm me-2"
                     ><i class="bi bi-pencil"></i
                   ></a>
@@ -68,9 +68,17 @@
                     class="btn btn-warning btn-sm me-2"
                     ><i class="bi bi-key"></i
                   ></a>
-                  <a href="#" class="btn btn-danger btn-sm"
+
+                  <!-- delete -->
+                  <form class="d-inline-block" method="POST" action="/user/delete" >
+                    <input type="hidden" name="delete_user"  value= "<?= $user["id"]; ?>" />
+                  <button type="submit" class="btn btn-danger btn-sm"
                     ><i class="bi bi-trash"></i
-                  ></a>
+                  ></button>
+                </input>
+                </form>
+                  <!-- delete -->
+
                 </div>
               </td>
             </tr>
