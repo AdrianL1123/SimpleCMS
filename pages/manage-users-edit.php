@@ -32,7 +32,7 @@
         </form>
       </div>
       <div class="text-center">
-        <a href="manage-users.html" class="btn btn-link btn-sm"
+        <a href="manage-users" class="btn btn-link btn-sm"
           ><i class="bi bi-arrow-left"></i> Back to Users</a
         >
       </div>

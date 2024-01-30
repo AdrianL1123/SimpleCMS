@@ -23,7 +23,7 @@
         </form>
       </div>
       <div class="text-center">
-        <a href="manage-posts.html" class="btn btn-link btn-sm"
+        <a href="manage-posts" class="btn btn-link btn-sm"
           ><i class="bi bi-arrow-left"></i> Back to Posts</a
         >
       </div>
