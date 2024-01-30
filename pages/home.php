@@ -1,41 +1,10 @@
 <?php
-  // step 1: list out all the database info
-  $host = 'devkinsta_db';
-  $database_name = 'SimpleCMS';
-  $database_user = 'root';
-  $database_password = 'f9Rry0z7a1HO6o38';
-
-  // Step 2: connect to the database to PHP
-$database = new PDO(
-  "mysql:host=$host;dbname=$database_name",
-  $database_user,
-  $database_password
-);
-
-// Step 3: load the data from the database
+    // Step 2: connect to the database
+    $database = connectToDB();
+   // Step 3: load the data from the database
 
 ?>    
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Simple CMS</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
-    />
-    <style type="text/css">
-      body {
-        background: #f1f1f1;
-      }
-    </style>
-  </head>
-  <body>
+  <?php require "parts/header.php" ?>
     <div class="container mx-auto my-5" style="max-width: 500px;">
       <h1 class="h1 mb-4 text-center">My Blog</h1>
       <div class="card mb-2">
@@ -86,12 +55,7 @@ $database = new PDO(
       </div>
       <?php endif; ?>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+    <?php require "parts/footer.php" ?>
+   
 
    

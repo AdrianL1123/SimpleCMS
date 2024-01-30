@@ -10,9 +10,9 @@
     $confirm_password = $_POST["confirm_password"];
  
     // Step 4: error checking
-     // 4.1 make sure all the fields are not empty
+         // 4.1 make sure all the fields are not empty
     if ( empty( $name ) || empty( $email ) || empty( $password ) || empty( $confirm_password ) ) {
-     setError( "All the fields are required.", "/signup" ); 
+         setError( "All the fields are required.", "/signup" ); 
     } else if ( $password !== $confirm_password ) {
          // 4.2 - make sure password is match
          setError( "The password does not match", '/signup' );

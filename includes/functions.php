@@ -26,3 +26,11 @@ function setError( $error_message, $redirect_page ) {
   header("Location: " . $redirect_page );
   exit;
 }
+
+// set success message
+function setSuccess( $success_message, $redirect_page ) {
+  $_SESSION["success"] = $success_message;
+  // redirect back to login page
+  header("Location: " . $redirect_page );
+  exit;
+}
