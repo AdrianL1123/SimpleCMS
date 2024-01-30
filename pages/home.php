@@ -46,7 +46,10 @@
       <?php if ( isset( $_SESSION["user"] ) ) : ?>
         <div class="d-flex justify-content-center align-items-center flex-column">
         <span>Welcome back, <?= $_SESSION["user"]["name"]; ?></span>
-        <a href="/logout" class="btn btn-link p-0" id="login">Logout</a>
+      <div class="d-flex gap-2">
+        <a href="/dashboard" class="btn btn-link p-0" id="dashboard">Dashboard</a>
+        <a href="/logout" class="btn btn-link p-0" id="logout">Logout</a>
+      </div>
       </div>
       <?php else : ?>
       <div class="mt-4 d-flex justify-content-center gap-3">

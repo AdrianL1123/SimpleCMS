@@ -3,7 +3,8 @@
       <h1 class="h1 mb-4 text-center">Login</h1>
 
       <div class="card p-4">
-      <?php require "parts/error_box.php"; ?>
+      <?php require "parts/message_error.php"; ?>
+      <?php require "parts/message_success.php"; ?>
         <form method="POST" action="/auth/login">
           <div class="mb-2">
             <label for="email" class="visually-hidden">Email</label>

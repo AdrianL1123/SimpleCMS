@@ -3,7 +3,7 @@
       <div class="d-flex justify-content-between align-items-center mb-2">
         <h1 class="h1">Manage Users</h1>
         <div class="text-end">
-          <a href="manage-users-add.html" class="btn btn-primary btn-sm"
+          <a href="manage-users-add" class="btn btn-primary btn-sm"
             >Add New User</a
           >
         </div>
@@ -93,7 +93,7 @@
         </table>
       </div>
       <div class="text-center">
-        <a href="dashboard.php" class="btn btn-link btn-sm"
+        <a href="/dashboard" class="btn btn-link btn-sm"
           ><i class="bi bi-arrow-left"></i> Back to Dashboard</a
         >
       </div>

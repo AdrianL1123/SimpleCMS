@@ -3,7 +3,7 @@
       <h1 class="h1 mb-4 text-center">Sign Up a New Account</h1>
 
       <div class="card p-4">
-      <?php require "parts/error_box.php"; ?>
+      <?php require "parts/message_error.php"; ?>
         <form method="POST" action="auth/signup">
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>

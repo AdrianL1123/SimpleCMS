@@ -36,8 +36,11 @@
           // 5.4 - if password is valid, login the user
           $_SESSION["user"] = $user;
 
+           // set success message
+           $_SESSION["success"] = "Welcome back! How can I help you today?";
+           
           // Step 6: redirect back to home page
-          header("Location: /");
+          header("Location: /dashboard");
           exit;
         } else {
           setError( "The password provided is incorrect", "/login" );
