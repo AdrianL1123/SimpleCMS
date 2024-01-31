@@ -20,7 +20,7 @@
             </div>
           </div>
         </div>
-        <?php if (isset($_SESSION['user'] ['role']) && $_SESSION ['user'] ['role'] === 'admin'): ?>
+        <?php if ( isAdmin() ) : ?>  
         <div class="col">
           <div class="card mb-2">
             <div class="card-body">

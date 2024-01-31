@@ -1,5 +1,19 @@
 <?php 
 
+  // make sure the user is logged in
+  if ( !isUserLoggedIn() ) {
+    // if is not logged in, redirect to /login page
+    header("Location: /login");
+    exit;
+  }
+
+  // make sure only admin can see this page
+  if ( !isAdmin() ) {
+    // if is not admin, then redirect the user back to /dashboard
+    header("Location: /dashboard");
+    exit;
+  }
+  
   // load the database
   $database = connectToDB();
 
