@@ -45,3 +45,5 @@ function UserIsEditor () {
 function UserIsNormal () {
   return isset( $_SESSION["user"]['role'] ) && $_SESSION["user"]['role'] === 'user';
 }
+
+

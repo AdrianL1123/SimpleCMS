@@ -89,4 +89,14 @@
     case 'user/changepwd':
       require 'includes/user/changepwd.php';
       break;
+    case 'post/delete':
+      require 'includes/post/delete.php';
+       break;
+    case 'post/add':
+      require 'includes/post/add.php';
+      break;
+    case 'post/edit':
+      require 'includes/post/edit.php';
+      break;
+
   }

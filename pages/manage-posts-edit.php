@@ -22,13 +22,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris purus risus, eui
 Phasellus sodales arcu quis felis sollicitudin vehicula. Aliquam viverra sem ac bibendum tincidunt. Donec pulvinar id purus sagittis laoreet. Sed aliquet ac nisi vehicula rutrum. Proin non risus et erat rhoncus aliquet. Nam sollicitudin facilisis elit, a consequat arcu placerat eu. Pellentesque euismod et est quis faucibus.
 
 Curabitur sit amet nisl feugiat, efficitur nibh et, efficitur ex. Morbi nec fringilla nisl. Praesent blandit pellentesque urna, a tristique nunc lacinia quis. Integer semper cursus lectus, ac hendrerit mi volutpat sit amet. Etiam iaculis arcu eget augue sollicitudin, vel luctus lorem vulputate. Donec euismod eu dolor interdum efficitur. Vestibulum finibus, lectus sed condimentum ornare, velit nisi malesuada ligula, eget posuere augue metus et dolor. Nunc purus eros, ultricies in sapien quis, sagittis posuere risus.
-                        </textarea
-            >
+                        </textarea>
           </div>
           <div class="mb-3">
             <label for="post-content" class="form-label">Status</label>
             <select class="form-control" id="post-status" name="status">
-              <option value="review">Pending for Review</option>
+              <option value="pending">Pending for Review</option>
               <option value="publish">Publish</option>
             </select>
           </div>
