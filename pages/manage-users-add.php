@@ -8,7 +8,7 @@
   }
 
   // make sure only admin can see this page
-  if ( !isAdmin() ) {
+  if ( !UserIsAdmin() ) {
     // if is not admin, then redirect the user back to /dashboard
     header("Location: /dashboard");
     exit;
