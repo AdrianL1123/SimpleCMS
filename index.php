@@ -86,4 +86,7 @@
     case 'user/edit':
       require 'includes/user/edit.php';
       break;
+    case 'user/changepwd':
+      require 'includes/user/changepwd.php';
+      break;
   }

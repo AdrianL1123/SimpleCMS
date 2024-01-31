@@ -49,7 +49,7 @@
         header("Location: /manage-users");
         exit;
     } else {
-        setError("The email provided has already been used.","/manage-users");
+        setError("The email provided has already been used.","/manage-users-add");
     }
 
 } // end - step 3

@@ -1,31 +1,45 @@
 <?php
 
-  // Step 2: connect to the database
-  $database = connectToDB();
-    
-      // step 3: get student id and updated name from $_POST
-      $name = $_POST["name"];
-      $email = $_POST["email"];
-      $role = $_POST["role"];
-    
-      // do error checking. Check if student name is empty or not
-      if ( empty( $name) || empty( $role )|| empty( $email ) ) {
-        echo "Please enter a name";
-      } else {
-        // Step 4: update the name in database
-            // 4.1 - sql command (recipe)
-            $sql = "UPDATE users SET name = :name WHERE role = :role";
-            // 4.2 - prepare (put everything into the bowl)
+    // Step 1: connect to the database
+    $database = connectToDB();
+
+    // Step 2: get all the data from the form using $_POST
+    $user_id = $_POST['user_id'];
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $role = $_POST["role"];
+
+    // Step 3: error checking
+    // 3.1 make sure all the fields are not empty
+    if ( empty( $name ) || empty( $email ) || empty( $role ) ) {
+        setError( 'All the fields are required', '/manage-users-edit?id=' . $user_id );
+    } else {
+        // Step 4: make sure the email entered wasn't already exists in the database
+        $sql = "SELECT * FROM users where email = :email AND id != :id";
+        $query = $database->prepare( $sql );
+        $query->execute([
+            'email' => $email,
+            'id' => $user_id
+        ]);
+        $user = $query->fetch(); // get only one row of data
+
+        if ( empty( $user ) ) {
+            // Step 5: update the user data
+            $sql = "UPDATE users SET name = :name, email = :email, role = :role WHERE id = :id";
             $query = $database->prepare( $sql );
-            // 4.3 - execute (cook it)
             $query->execute([
                 'name' => $name,
                 'email' => $email,
-                'role' => $role
+                'role' => $role,
+                'id' => $user_id
             ]);
-    
-        // Step 5: redirect back to home page
-        header("Location: /manage-users");
-        exit;
-    
-      }
+
+            // Step 6: redirect back to /manage-users page
+            $_SESSION["success"] = "User data has been updated successfully.";
+            header("Location: /manage-users");
+            exit;
+        } else {
+            setError("The email provided has already been used.",'/manage-users-edit?id=' . $user_id);
+        } // end - $user
+
+    } // end - step 3
