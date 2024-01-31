@@ -1,8 +1,11 @@
-<?php require "parts/header.php"; ?>
+<?php 
+
+require "parts/header.php"; ?>
   <div class="container mx-auto my-5" style="max-width: 800px">
     <h1 class="h1 mb-4 text-center">Dashboard</h1>
     <?php require "parts/message_success.php"; ?>
     <div class="row">
+    <?php if ( UserIsNormal())  : ?>    
       <!-- manage posts -->
       <div class="col">
         <div class="card mb-2">
@@ -22,7 +25,8 @@
         </div>
       </div>
       <!-- manage users -->
-      <?php if ( UserIsAdmin() ) : ?>    
+      <?php endif; ?>
+      <?php if ( UserIsAdmin())  : ?>    
       <div class="col">
         <div class="card mb-2">
           <div class="card-body">
