@@ -6,11 +6,19 @@
     exit;
   }
 
-
-
   // load database
   $database = connectToDB();
 
+  if ( UserIsNormal() ) {
+  $user_id = $_SESSION["user"]["id"];
+  // get all the users
+  // 1. sql command
+  $sql = "SELECT * from posts WHERE user_id = :user_id ORDER BY id DESC"; // order by ID DESC
+  // 2. prepare
+  $query = $database->prepare( $sql );
+  // 3. execute
+  $query->execute( ['user_id' => $user_id]);
+  } else  {
   // get all the users
   // 1. sql command
   $sql = "SELECT * from posts ORDER BY id DESC"; // order by ID DESC
@@ -18,12 +26,12 @@
   $query = $database->prepare( $sql );
   // 3. execute
   $query->execute();
+  }
   // 4. fetchAll
   $posts = $query->fetchAll();
 
 
  require "parts/header.php"; ?>
-       <?php if ( isset( $_SESSION["user"]["id"] ) ) : ?>
   <div class="container mx-auto my-5" style="max-width: 700px">
     <div class="d-flex justify-content-between align-items-center mb-2">
       <h1 class="h1">Manage Posts</h1>
@@ -119,5 +127,4 @@
       >
     </div>
   </div>
-  <?php endif; ?>
 <?php require "parts/footer.php"; ?>

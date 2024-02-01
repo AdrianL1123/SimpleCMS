@@ -1,11 +1,16 @@
 <?php 
-
+  // make sure the user is logged in
+  if ( !isUserLoggedIn() ) {
+    // if is not logged in, redirect to /login page
+    header("Location: /login");
+    exit;
+  }
 require "parts/header.php"; ?>
   <div class="container mx-auto my-5" style="max-width: 800px">
     <h1 class="h1 mb-4 text-center">Dashboard</h1>
     <?php require "parts/message_success.php"; ?>
     <div class="row">
-    <?php if ( UserIsNormal()|| UserIsAdmin())  : ?>    
+    <?php if ( isUserLoggedIn() )  : ?>    
       <!-- manage posts -->
       <div class="col">
         <div class="card mb-2">
