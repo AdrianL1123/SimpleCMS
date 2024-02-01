@@ -5,7 +5,7 @@ require "parts/header.php"; ?>
     <h1 class="h1 mb-4 text-center">Dashboard</h1>
     <?php require "parts/message_success.php"; ?>
     <div class="row">
-    <?php if ( UserIsNormal())  : ?>    
+    <?php if ( UserIsNormal()|| UserIsAdmin())  : ?>    
       <!-- manage posts -->
       <div class="col">
         <div class="card mb-2">

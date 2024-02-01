@@ -23,6 +23,7 @@
 
 
  require "parts/header.php"; ?>
+       <?php if ( isset( $_SESSION["user"]["id"] ) ) : ?>
   <div class="container mx-auto my-5" style="max-width: 700px">
     <div class="d-flex justify-content-between align-items-center mb-2">
       <h1 class="h1">Manage Posts</h1>
@@ -61,26 +62,24 @@
 
             <td class="text-end">
               <div class="buttons">
-                <a
+                <button
                   href="/manage-posts"
                   target="_blank"
                   class="btn btn-primary btn-sm me-2"
-                  ><i class="bi bi-eye"></i
-                ></a>
+                ><i class="bi bi-eye"></i
+                ></button>
                 <a
-                  href="/manage-posts-edit"
+                  href="/manage-posts-edit?id=<?= $post["id"]; ?>"
                   class="btn btn-secondary btn-sm me-2"
                   ><i class="bi bi-pencil"></i
                 ></a>
                 <button 
                     type="button" 
                     class="btn btn-danger btn-sm"
-                    <?= ( $post["id"] == $_SESSION["user"]['id'] ? "disabled" : "" ); ?>
                     data-bs-toggle="modal" 
                     data-bs-target="#delete-user-model-<?= $post["id"]; ?>">
                     <i class="bi bi-trash"></i>
                   </button>
-
                     <!-- Modal -->
                     <div class="modal fade" id="delete-user-model-<?= $post["id"]; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -120,4 +119,5 @@
       >
     </div>
   </div>
+  <?php endif; ?>
 <?php require "parts/footer.php"; ?>

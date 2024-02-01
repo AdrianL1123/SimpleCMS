@@ -39,11 +39,15 @@ function UserIsAdmin () {
 }
 // is user an editor
 function UserIsEditor () {
-  // return isset( $_SESSION["user"]['role'] ) && $_SESSION["user"]['role'] === 'editor';
+  return isset( $_SESSION["user"]['role'] ) && $_SESSION["user"]['role'] === 'editor';
 }
 // is user a normal user 
 function UserIsNormal () {
   return isset( $_SESSION["user"]['role'] ) && $_SESSION["user"]['role'] === 'user';
+}
+// is admin or editor also can see
+function isAdminOrEditor() {
+  return isset( $_SESSION["user"]['role'] ) && ( $_SESSION["user"]['role'] === 'admin' || $_SESSION["user"]['role'] === 'editor' );
 }
 
 

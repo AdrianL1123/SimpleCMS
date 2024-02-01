@@ -7,12 +7,7 @@
      exit;
    }
  
-   // make sure only admin can see this page
-   if ( !UserIsAdmin() ) {
-     // if is not admin, then redirect the user back to /dashboard
-     header("Location: /dashboard");
-     exit;
-   }
+
 
     // Step 1: connect to the database
     $database = connectToDB();
