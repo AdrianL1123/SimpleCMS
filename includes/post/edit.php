@@ -32,7 +32,7 @@
             ]);
 
             // Step 6: redirect back to /manage-users page
-            $_SESSION["success"] = "Post data has been updated successfully.";
+            $_SESSION["success"] = "Post has been updated successfully.";
             header("Location: /manage-posts");
             exit;
         }

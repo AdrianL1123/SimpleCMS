@@ -7,8 +7,6 @@
      exit;
    }
  
-
-
     // Step 1: connect to the database
     $database = connectToDB();
 
@@ -28,7 +26,7 @@
             $query->execute([
                 'title' => $title,
                 'content' => $content,
-            'user_id' => $_SESSION["user"]['id']
+                'user_id' => $_SESSION["user"]['id']
             ]);
 
             // Step 6: redirect back to /manage-posts page
