@@ -1,48 +1,30 @@
 <?php
-    // Step 2: connect to the database
+    // Step 1: connect to the database
     $database = connectToDB();
-   // Step 3: load the data from the database
-
+   // Step 2: load the data from the database 
+   $sql = "SELECT * FROM posts WHERE status = :status ORDER BY id DESC";
+   $query = $database->prepare($sql);
+    // 3. execute
+    $query->execute([
+      'status' => 'publish'
+    ]);
+    // 4. fetchAll
+    $posts = $query->fetchAll();
 ?>    
   <?php require "parts/header.php" ?>
     <div class="container mx-auto my-5" style="max-width: 500px;">
       <h1 class="h1 mb-4 text-center">My Blog</h1>
-      <div class="card mb-2">
-        <div class="card-body">
-          <h5 class="card-title">Post 4</h5>
-          <p class="card-text">Here's some content about post 4</p>
-          <div class="text-end">
-            <a href="/post" class="btn btn-primary btn-sm">Read More</a>
-          </div>
+      <?php foreach ( $posts as $post ) : ?>
+        <div class="card mb-2">
+            <div class="card-body">
+            <h5 class="card-title"><?= $post['title']; ?></h5>
+            <p class="card-text"><?= $post['content']; ?></p>
+            <div class="text-end">
+                <a href="/post?id=<?= $post['id']; ?>" class="btn btn-primary btn-sm">Read More</a>
+            </div>
+            </div>
         </div>
-      </div>
-      <div class="card mb-2">
-        <div class="card-body">
-          <h5 class="card-title">Post 3</h5>
-          <p class="card-text">This is for post 3</p>
-          <div class="text-end">
-            <a href="/post" class="btn btn-primary btn-sm">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="card mb-2">
-        <div class="card-body">
-          <h5 class="card-title">Post 2</h5>
-          <p class="card-text">This is about post 2</p>
-          <div class="text-end">
-            <a href="/post" class="btn btn-primary btn-sm">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="card mb-2">
-        <div class="card-body">
-          <h5 class="card-title">Post 1</h5>
-          <p class="card-text">This is a post</p>
-          <div class="text-end">
-            <a href="/post" class="btn btn-primary btn-sm">Read More</a>
-          </div>
-        </div>
-      </div>
+        <?php endforeach; ?>
       <?php if ( isset( $_SESSION["user"] ) ) : ?>
         <div class="d-flex justify-content-center align-items-center flex-column">
         <span>Welcome back, <?= $_SESSION["user"]["name"]; ?></span>

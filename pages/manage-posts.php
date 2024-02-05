@@ -13,15 +13,30 @@
   $user_id = $_SESSION["user"]["id"];
   // get all the users
   // 1. sql command
-  $sql = "SELECT * from posts WHERE user_id = :user_id ORDER BY id DESC"; // order by ID DESC
+  $sql = "SELECT 
+  posts.*,
+  users.name AS user_name
+  FROM posts
+  JOIN users
+  ON posts.user_id = users.id
+  WHERE user_id = :user_id 
+  ORDER BY id DESC"; // order by ID DESC
   // 2. prepare
   $query = $database->prepare( $sql );
   // 3. execute
-  $query->execute( ['user_id' => $user_id]);
+  $query->execute( [
+    'user_id' => $user_id
+  ]);
   } else  {
   // get all the users
   // 1. sql command
-  $sql = "SELECT * from posts ORDER BY id DESC"; // order by ID DESC
+  $sql = "SELECT 
+  posts.*, 
+  users.name AS user_name 
+  FROM posts 
+  JOIN users 
+  ON posts.user_id = users.id 
+  ORDER BY id DESC"; // order by ID DESC
   // 2. prepare
   $query = $database->prepare( $sql );
   // 3. execute
@@ -49,6 +64,7 @@
             <th scope="col">ID</th>
             <th scope="col" style="width: 40%">Title</th>
             <th scope="col">Status</th>
+            <th scope="col">Author</th>
             <th scope="col" class="text-end">Actions</th>
           </tr>
         </thead>
@@ -67,7 +83,11 @@
            <?php if ( $post["status"] === 'publish' ) : ?>
              <td><span class="badge bg-success">Publish</span></td>
            <?php endif; ?>
+           <td>
+              <!-- print user's name here --->
+             <strong><em><?php echo $post['user_name']; ?></em></strong>
 
+            </td>
   <td class="text-end">
     <div class="buttons">
       <a
