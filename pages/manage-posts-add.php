@@ -14,7 +14,7 @@ require "parts/header.php" ?>
         <h1 class="h1">Add New Post</h1>
       </div>
       <div class="card mb-2 p-4">
-        <form method="POST" action="/post/add">
+        <form method="POST" action="/post/add" enctype="multipart/form-data">
           <div class="mb-3">
             <label for="post-title" class="form-label">Title</label>
             <input type="text" class="form-control" id="post-title" name="title"/>
@@ -28,6 +28,10 @@ require "parts/header.php" ?>
               name="content"
             ></textarea>
           </div>
+          <div class="mb-3">
+          <input type="file" name="name">
+          <!-- if wantt only images   mime_content_type="image/*" -->
+          </div>  
           <div class="text-end">
             <input type="hidden" name="post_id" />
             <button type="submit" class="btn btn-primary">Add</button>

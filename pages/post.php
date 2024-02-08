@@ -41,6 +41,9 @@ require "parts/header.php"; ?>
           // JOIN method:
           echo $post['user_name'];
         ?></h4>
+        <?php if ( !empty( $post["image"] ) ) : ?>
+          <img src="/<?= $post["image"]; ?>" class="img-fluid"/>
+        <?php endif; ?>
         <?php 
           // long method:
           // $paragraph_array = preg_split( '/\n\s*\n/', $post['content'] );
